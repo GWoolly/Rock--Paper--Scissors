@@ -4,8 +4,8 @@ function state_chosen()
 	// Find a winner!
 	if(alarm[0] == 0)
 	{
-		var _result = (3 + player_rps) - cpu_rps;	// Oh boy am I glad that I used numbers instead of strings here, imagine having to write out results for each permutation! :D
-		_result = _result %3;						// Modulo the value if the result overflows;
+		var _result = (3 + player_rps) - cpu_rps;	// Use maths to work out the winner from the integer values of the player's and cpu's choices.
+		_result = _result %3;				// Modulo the value if the result overflows;
 		
 		// Tally the round
 		switch(_result)
