@@ -15,8 +15,8 @@ function state_reveal()
 		alarm[0] = 60 * 2;
 	}
 
-	// Kill the loser
-	if( data < 1){;}				// Draw
+	// Kill the loser by sliding their choice off of the screen.
+	if( data < 1){;}			// Draw - Do nothing.
 	else if( data <2){	objCPU.y += 3;}	// CPU
 	else{	y += 3;}			// Player
 	
@@ -24,7 +24,6 @@ function state_reveal()
 	// Progress to next round or declare a winner!
 	if(alarm[0] == 0)
 	{
-		//var _tallyRounds = (player_round - cpu_round);
 		if player_round > 1
 		{
 			// Player has won best of three games!
@@ -48,14 +47,11 @@ function state_reveal()
 		else
 		{
 			// No clear winner yet!
-			// This isn't needed but I might put something here for fun.
-			// :P
-			
 			// Make UI buttons visible
-			with(objUI_weapon)	{	visible = true;}
-			game_string		= text.input;
-			rps_cleanup();
-			state = state_input;
+			with(objUI_weapon){visible = true;}	// Make UI visible
+			game_string = text.input;		// Change broadcast message to input instruction
+			rps_cleanup();				// Clean up the round tallies
+			state = state_input;			// Return back to the input state
 		}
 		
 
