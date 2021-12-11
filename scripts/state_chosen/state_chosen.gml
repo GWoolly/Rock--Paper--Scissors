@@ -1,8 +1,6 @@
 /// @des
 function state_chosen()
-{	
-	// Put fancy animations here!
-	
+{		
 	// Find a winner!
 	if(alarm[0] == 0)
 	{
@@ -27,15 +25,10 @@ function state_chosen()
 		
 		// Graphics
 		visible = true;
-		//objUI_Button.visible = true;
 		
 		// Progress to next state
-		alarm[0] = 60 * 2;
-		//*
+		alarm[0] = 60 * 2;		// Delay until the next state performs its end action.
 		state = state_reveal;
-		data = _result;
-		/*/
-		state = script_execute(state_reveal, _result);
-		//*/
+		data = _result;			// This just tells the next state who won in order to do the "death" animation.
 	}
 }
