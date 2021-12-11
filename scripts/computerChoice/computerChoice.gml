@@ -1,4 +1,4 @@
-/// @des
+/// @des Returns a weighted roll in favour of the CPU, based on the playerChoices array.
 function computerChoice(playerChoices)		/// @arg {array}	playerChoices
 {
 	// Do the magic here
@@ -23,13 +23,13 @@ function computerChoice(playerChoices)		/// @arg {array}	playerChoices
 	repeat(_diceFaces-1)
 	{
 		var _chance = clamp(_tally[_roll], 2500, 5000);		// Get weighted chance clamped between 25%~50%
-		var _weightedRoll	= irandom(10000);				// Dice roll to compare weighted chance.
+		var _weightedRoll	= irandom(10000);		// Dice roll to compare weighted chance.
 		
 		
 		if(_weightedRoll < _chance)
 		{
 			_roll = (_roll+1) %(_diceFaces);	// Make roll in CPU's favour
-			break;								// Return the result
+			break;					// Return the result
 		}	
 		
 		_roll = ++_roll %(_diceFaces);	// Roll again
@@ -38,7 +38,7 @@ function computerChoice(playerChoices)		/// @arg {array}	playerChoices
 	
 	// Output probabliity table to the debug draw event.
 	_tally[playerChoices[0]] -= _weight;	// Adjust calculation to be current for next round
-	_tally[player_rps]+= _weight;			// ''
+	_tally[player_rps]+= _weight;		// ''
 	probabilityTable = ("\nPlayer Probability Table:"
 						+"\nRock: "		+string(clamp(_tally[0], 2500, 5000)	/100)+"%"
 						+"\nPaper: "	+string(clamp(_tally[1], 2500, 5000)	/100)+"%"
