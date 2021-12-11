@@ -6,13 +6,13 @@ function state_reveal()
 	{
 		// Reset round tallys
 		player_round	= 0;
-		cpu_round		= 0;
+		cpu_round	= 0;
 		
-		// Reset strings
+		// Reset debug strings
 		player_string	= "";
-		cpu_string		= "";
+		cpu_string	= "";
 		
-		alarm[0] = 60 * 2;
+		alarm[0] = 60 * 2;	// Duration of the next state
 	}
 
 	// Kill the loser by sliding their choice off of the screen.
@@ -30,9 +30,9 @@ function state_reveal()
 			player_wins++;
 			game_string = text.playerWin;	
 			
-			_reset_rounds();
+			_reset_rounds();		// Reset the match
 			
-			state = state_winner;
+			state = state_winner;		// Change state to the "victory" state.
 		}
 		else if cpu_round > 1
 		{
@@ -40,9 +40,9 @@ function state_reveal()
 			cpu_wins++;
 			game_string = text.cpuWin;
 			
-			_reset_rounds();
+			_reset_rounds();		// Reset the match
 			
-			state = state_winner;
+			state = state_winner;		// Change state to the "victory" state.
 		}
 		else
 		{
@@ -50,7 +50,7 @@ function state_reveal()
 			// Make UI buttons visible
 			with(objUI_weapon){visible = true;}	// Make UI visible
 			game_string = text.input;		// Change broadcast message to input instruction
-			rps_cleanup();				// Clean up the round tallies
+			rps_cleanup();				// Reset round without cleaning up the round tallies
 			state = state_input;			// Return back to the input state
 		}
 		
