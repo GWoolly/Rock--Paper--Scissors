@@ -20,3 +20,6 @@ All other code can be found within the .GML files within the "Scripts/" and "Obj
 3. [Calculate the winner of the round](scripts/state_chosen/state_chosen.gml)
 4. [Reveal the winner of the round, and declare if there is an overall winner](scripts/state_reveal/state_reveal.gml)
 5. [Celebrate the overall winner](scripts/state_winner/state_winner.gml)
+
+# Part 3 - Design a Runescape mini-game
+Link to the design concept document can be found [here](https://docs.google.com/document/d/1f8o-O7IWEbfdwAn2B7VqKjENxRMs6ubYee24G_YokXI/edit?usp=sharing)
